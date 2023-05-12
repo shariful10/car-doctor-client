@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-header {
+	@apply py-3 px-4 border border-[#FF3811] rounded-lg hover:bg-[#FF3811] text-[#FF3811] hover:text-black font-semibold duration-200;
+}
+
+.btn-red {
+	@apply py-3 px-5 bg-[#FF3811] border-[#FF3811] font-semibold duration-200 text-white rounded-lg hover:bg-transparent border hover:border-white;
+}
+
+.btn-red-outline {
+	@apply py-3 px-5 duration-200 text-white border border-white rounded-lg hover:bg-[#FF3811] hover:border-[#FF3811] font-semibold;
+}
+
+.btn-all {
+	@apply py-3 px-5 bg-[#FF3811] border-[#FF3811] font-semibold duration-200 text-white rounded-lg hover:bg-transparent border hover:border-[#FF3811] hover:text-[#FF3811];
+}
+
+.btn-out {
+	@apply py-3 px-5 border border-[#FF3811] text-[#FF3811] font-semibold duration-200 hover:text-white rounded-lg hover:bg-[#FF3811];
+}
