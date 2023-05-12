@@ -1,8 +1,9 @@
 import React from "react";
-import img1 from '../../assets/images/banner/1.jpg'
-import img2 from '../../assets/images/banner/1.jpg'
-import img3 from '../../assets/images/banner/1.jpg'
-import img4 from '../../assets/images/banner/1.jpg'
+import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
+import img1 from "../../assets/images/banner/1.jpg";
+import img2 from "../../assets/images/banner/1.jpg";
+import img3 from "../../assets/images/banner/1.jpg";
+import img4 from "../../assets/images/banner/1.jpg";
 
 const Banner = () => {
 	return (
@@ -18,18 +19,16 @@ const Banner = () => {
 						</p>
 						<div>
 							<button className="btn-red mr-5">Discover More</button>
-							<button className="btn-red-outline">
-								Latest Project
-							</button>
+							<button className="btn-red-outline">Latest Project</button>
 						</div>
 					</div>
 				</div>
 				<div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-					<a href="#slide4" className="btn btn-circle mr-5">
-						❮
+					<a href="#slide4" className="btn btn-circle mr-5 hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowLeft />
 					</a>
-					<a href="#slide2" className="btn btn-circle">
-						❯
+					<a href="#slide2" className="btn btn-circle hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowRight />
 					</a>
 				</div>
 			</div>
@@ -44,18 +43,16 @@ const Banner = () => {
 						</p>
 						<div>
 							<button className="btn-red mr-5">Discover More</button>
-							<button className="btn-red-outline">
-								Latest Project
-							</button>
+							<button className="btn-red-outline">Latest Project</button>
 						</div>
 					</div>
 				</div>
 				<div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-					<a href="#slide1" className="btn btn-circle mr-5">
-						❮
+					<a href="#slide1" className="btn btn-circle mr-5 hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowLeft />
 					</a>
-					<a href="#slide3" className="btn btn-circle">
-						❯
+					<a href="#slide3" className="btn btn-circle hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowRight />
 					</a>
 				</div>
 			</div>
@@ -70,18 +67,16 @@ const Banner = () => {
 						</p>
 						<div>
 							<button className="btn-red mr-5">Discover More</button>
-							<button className="btn-red-outline">
-								Latest Project
-							</button>
+							<button className="btn-red-outline">Latest Project</button>
 						</div>
 					</div>
 				</div>
 				<div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-					<a href="#slide2" className="btn btn-circle mr-5">
-						❮
+					<a href="#slide2" className="btn btn-circle mr-5 hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowLeft />
 					</a>
-					<a href="#slide4" className="btn btn-circle">
-						❯
+					<a href="#slide4" className="btn btn-circle hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowRight />
 					</a>
 				</div>
 			</div>
@@ -96,18 +91,16 @@ const Banner = () => {
 						</p>
 						<div>
 							<button className="btn-red mr-5">Discover More</button>
-							<button className="btn-red-outline">
-								Latest Project
-							</button>
+							<button className="btn-red-outline">Latest Project</button>
 						</div>
 					</div>
 				</div>
 				<div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-					<a href="#slide3" className="btn btn-circle mr-5">
-						❮
+					<a href="#slide3" className="btn btn-circle mr-5 hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowLeft />
 					</a>
-					<a href="#slide1" className="btn btn-circle">
-						❯
+					<a href="#slide1" className="btn btn-circle hover:bg-[#FF3811] hover:border-[#FF3811]">
+						<HiArrowRight />
 					</a>
 				</div>
 			</div>

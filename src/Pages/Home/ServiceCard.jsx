@@ -1,22 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiArrowRight } from "react-icons/hi";
 
 const ServiceCard = ({ service }) => {
 	const { _id, title, img, price } = service;
 
 	return (
-		<div className="card w-96 bg-base-100 shadow-xl">
-			<figure className="px-10 pt-10">
+		<div className="card w-full border">
+			<figure className="p-5">
 				<img src={img} alt="Shoes" className="rounded-xl" />
 			</figure>
 			<div className="card-body">
-				<h2 className="card-title">{title}</h2>
-				<p className="text-xl text-[#FF3811]">Price: ${price}</p>
-				<div className="card-actions">
-					<Link to={`/book/${_id}`}>
-						<button className="btn btn-primary">Book Now</button>
+				<h2 className="text-2xl font-bold">{title}</h2>
+				<div className="flex justify-between items-center">
+                <p className="text-xl text-[#FF3811] font-semibold">Price: ${price}</p>
+                <Link to=''>
+						<HiArrowRight className="text-[#FF3811] h-6 w-6" />
 					</Link>
-				</div>
+                </div>
 			</div>
 		</div>
 	);
