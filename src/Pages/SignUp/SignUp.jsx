@@ -4,15 +4,16 @@ import img from "../../assets/images/login/login.svg";
 import google from "../../assets/images/login/google.svg";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
 	const [pass, setPass] = useState(false);
 
-	const handleLogin = (e) => {
+    const handleSignUp = (e) => {
 		e.preventDefault();
 		const form = e.target;
+		const name = form.name.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		const boltu = { email, password };
+		const boltu = { name, email, password };
 		console.log(boltu);
 	};
 
@@ -20,13 +21,22 @@ const Login = () => {
 		<div className="hero my-[130px]">
 			<div className="flex gap-[70px]">
 				<img src={img} alt="" />
-				<form
-					onSubmit={handleLogin}
-					className="p-[30px] border border-[#D0D0D0] rounded-[10px]">
+				<form onSubmit={handleSignUp} className="p-[30px] border border-[#D0D0D0] rounded-[10px]">
 					<h1 className="text-center text-[40px] text-[#444444] font-semibold mb-[20px]">
-						Login
+						Sign Up
 					</h1>
-					<div>
+					<div className="mb-3">
+						<label htmlFor="name" className="block mb-2">
+							Name
+						</label>
+						<input
+							name="name"
+							type="name"
+							placeholder="Your Name"
+							className="input input-bordered w-[461px] h-[50px]"
+						/>
+					</div>
+					<div className="">
 						<label htmlFor="email" className="block mb-2">
 							Email
 						</label>
@@ -53,7 +63,7 @@ const Login = () => {
 							className="input input-bordered w-[461px] h-[50px]"
 						/>
 					</div>
-					<input className="btn-form" type="submit" value="Login" />
+					<input className="btn-form" type="submit" value="Sign Up" />
 					<p className="text-center my-[20px] text-[18px] font-medium">Or Sign In with</p>
 					<div className="flex justify-center items-center mx-auto gap-4">
 						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
@@ -67,10 +77,10 @@ const Login = () => {
 						</div>
 					</div>
 					<p className="text-center text-[#737373] text-[18px] font-normal mt-[30px]">
-						Don't have an account?
+						Already have an account?
 						<span className="font-semibold text-[#FF3811]">
 							{" "}
-							<Link to="/signup">Sign Up</Link>
+							<Link to="/login">Login</Link>
 						</span>
 					</p>
 				</form>
@@ -79,4 +89,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default SignUp;
