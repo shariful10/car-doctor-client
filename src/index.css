@@ -23,5 +23,5 @@
 }
 
 .btn-form {
-	@apply py-3 bg-[#FF3811] border border-[#FF3811] font-semibold duration-200 text-white rounded-lg w-full hover:bg-transparent hover:border-[#FF3811] hover:text-[#FF3811];
+	@apply py-3 bg-[#FF3811] font-semibold duration-200 text-white rounded-lg w-full hover:bg-[#bd2d10];
 }
