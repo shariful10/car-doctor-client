@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import img from "../../assets/images/login/login.svg";
 import google from "../../assets/images/login/google.svg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const SignUp = () => {
 	const [pass, setPass] = useState(false);
+	const { createUser } = useContext(AuthContext);
 
-    const handleSignUp = (e) => {
+	const handleSignUp = (e) => {
 		e.preventDefault();
 		const form = e.target;
 		const name = form.name.value;
@@ -15,13 +17,29 @@ const SignUp = () => {
 		const password = form.password.value;
 		const boltu = { name, email, password };
 		console.log(boltu);
+
+		createUser(email, password)
+			.then((res) => {
+				const user = res.user;
+				console.log(user);
+				if (user) {
+					alert("Sign Up Successfully");
+				}
+				form.reset();
+			})
+			.catch((err) => {
+				console.log(err);
+				
+			});
 	};
 
 	return (
 		<div className="hero my-[130px]">
 			<div className="flex gap-[70px]">
 				<img src={img} alt="" />
-				<form onSubmit={handleSignUp} className="p-[30px] border border-[#D0D0D0] rounded-[10px]">
+				<form
+					onSubmit={handleSignUp}
+					className="p-[30px] border border-[#D0D0D0] rounded-[10px]">
 					<h1 className="text-center text-[40px] text-[#444444] font-semibold mb-[20px]">
 						Sign Up
 					</h1>
