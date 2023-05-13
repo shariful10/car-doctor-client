@@ -6,11 +6,10 @@ const NavBar = () => {
 	const navItems = (
 		<>
 			<li>
-				<Link to="/">Home</Link>{" "}
+				<Link to="/">Home</Link>
 			</li>
 			<li>
-				{" "}
-				<Link to="/about">About</Link>{" "}
+				<Link to="/login">Login</Link>
 			</li>
 		</>
 	);
@@ -19,7 +18,7 @@ const NavBar = () => {
 		<div className="navbar h-28 mb-4 container mx-auto">
 			<div className="navbar-start">
 				<div className="dropdown">
-					<label tabIndex={0} className="btn btn-ghost lg:hidden">
+					<label tabIndex={0} className="lg:hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-5 w-5"
@@ -35,8 +34,8 @@ const NavBar = () => {
 						</svg>
 					</label>
 					<ul
-						tabIndex={0}
-						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+						
+						className="menu menu-compact dropdown-content mt-3 rounded-box w-52">
 						{navItems}
 					</ul>
 				</div>
