@@ -1,9 +1,11 @@
-import React from "react";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaEye, FaEyeSlash, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import img from "../../assets/images/login/login.svg";
 import google from "../../assets/images/login/google.svg";
 
 const Login = () => {
+	const [pass, setPass] = useState(false);
+
 	return (
 		<div className="hero my-[130px]">
 			<div className="flex gap-[70px]">
@@ -24,12 +26,17 @@ const Login = () => {
 						/>
 					</div>
 					<div className="my-7">
-						<label htmlFor="password" className="block mb-5">
-							Password
+						<label
+							htmlFor="password"
+							className="mb-5 flex justify-between items-center">
+							<p>Password</p>
+							<span onClick={() => setPass(!pass)}>
+								{pass ? <FaEyeSlash /> : <FaEye />}
+							</span>
 						</label>
 						<input
 							name="password"
-							type="password"
+							type={pass ? "text" : "password"}
 							placeholder="Your Password"
 							className="input input-bordered w-[461px] h-[60px]"
 						/>
@@ -44,12 +51,12 @@ const Login = () => {
 							<FaLinkedinIn className="text-[#0A66C2]" />
 						</div>
 						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<img src={google} alt="" />
+							<img className="w-[17px] h-[17px]" src={google} alt="" />
 						</div>
 					</div>
 					<p className="text-center text-[#737373] text-[18px] font-normal mt-[50px]">
 						Already have an account?
-						<span className="font-semibold text-[#FF3811]"> Login</span>
+						<span className="font-semibold text-[#FF3811]"> Sign In</span>
 					</p>
 				</form>
 			</div>
