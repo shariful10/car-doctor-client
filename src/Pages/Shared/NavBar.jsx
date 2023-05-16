@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const NavBar = () => {
+	const { user, logOut } = useContext(AuthContext);
+
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {})
+			.catch((err) => console.log(err));
+	};
+
 	const navItems = (
 		<>
 			<li>
 				<Link to="/">Home</Link>
 			</li>
 			<li>
-				<Link to="/login">Login</Link>
-			</li>
-			<li>
 				<Link to="/signup">Sign Up</Link>
 			</li>
+			{user?.email ? (
+				<>
+					<li>
+						<Link to="/bookings">My Bookings</Link>
+					</li>
+					<li onClick={handleLogOut}>
+						<button>Log Out</button>
+					</li>
+				</>
+			) : (
+				<li>
+					<Link to="/login">Login</Link>
+				</li>
+			)}
 		</>
 	);
 
@@ -36,9 +56,7 @@ const NavBar = () => {
 							/>
 						</svg>
 					</label>
-					<ul
-						
-						className="menu menu-compact dropdown-content mt-3 rounded-box w-52">
+					<ul className="menu menu-compact dropdown-content mt-3 rounded-box w-52">
 						{navItems}
 					</ul>
 				</div>

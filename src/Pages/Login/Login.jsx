@@ -2,24 +2,24 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import img from "../../assets/images/login/login.svg";
 import google from "../../assets/images/login/google.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
 	const [pass, setPass] = useState(false);
 	const { signIn, googleSignIn, facebookSignIn } = useContext(AuthContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	const from = location.state?.from?.pathname || "/";
 
 	const handleLogin = (e) => {
 		e.preventDefault();
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		const boltu = { email, password };
-		console.log(boltu);
-		if (password.length >= 8) {
-			alert('password must be at least 6 characters')
-			return;
-		}
+		console.log(email, password);
+
 		signIn(email, password)
 			.then((res) => {
 				const user = res.user;
@@ -28,6 +28,7 @@ const Login = () => {
 					alert("Successfully Login");
 				}
 				form.reset();
+				navigate(from, { replace: true });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -42,7 +43,6 @@ const Login = () => {
 				const loggedUser = res.user;
 				console.log(loggedUser);
 				alert("Successfully Login");
-				// navigate(from, { replace: true });
 			})
 			.catch((err) => console.log(err));
 	};
@@ -53,7 +53,6 @@ const Login = () => {
 				const loggedUser = res.user;
 				console.log(loggedUser);
 				alert("Successfully Login");
-				// navigate(from, { replace: true });
 			})
 			.catch((err) => console.log(err));
 	};
@@ -99,13 +98,21 @@ const Login = () => {
 					<p className="text-center my-[20px] text-[18px] font-medium">Or Sign In with</p>
 					<div className="flex justify-center items-center mx-auto gap-4">
 						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<FaFacebookF onClick={handleFacebookLogin} className="text-[#3B5998] rounded-[50%]" />
+							<FaFacebookF
+								onClick={handleFacebookLogin}
+								className="text-[#3B5998] rounded-[50%]"
+							/>
 						</div>
 						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
 							<FaLinkedinIn className="text-[#0A66C2]" />
 						</div>
 						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<img onClick={handleGoogleLogin} className="w-[17px] h-[17px]" src={google} alt="" />
+							<img
+								onClick={handleGoogleLogin}
+								className="w-[17px] h-[17px]"
+								src={google}
+								alt=""
+							/>
 						</div>
 					</div>
 					<p className="text-center text-[#737373] text-[18px] font-normal mt-[30px]">

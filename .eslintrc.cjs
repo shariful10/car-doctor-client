@@ -15,5 +15,6 @@ module.exports = {
 		"react/no-unescaped-entities": 0,
 		"react/react-in-jsx-scope": "off",
 		"react-refresh/only-export-components": "warn",
+		// "react-hooks/exhaustive-deps": 0,
 	},
 };

@@ -13,11 +13,11 @@ const ServiceCard = ({ service }) => {
 			<div className="card-body">
 				<h2 className="text-2xl font-bold">{title}</h2>
 				<div className="flex justify-between items-center">
-                <p className="text-xl text-[#FF3811] font-semibold">Price: ${price}</p>
-                <Link to=''>
+					<p className="text-xl text-[#FF3811] font-semibold">Price: ${price}</p>
+					<Link to={`/book/${_id}`}>
 						<HiArrowRight className="text-[#FF3811] h-6 w-6" />
 					</Link>
-                </div>
+				</div>
 			</div>
 		</div>
 	);
