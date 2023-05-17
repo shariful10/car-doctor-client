@@ -8,7 +8,6 @@ import useTitle from "../../Hooks/useTitle";
 const BookService = () => {
 	const service = useLoaderData();
 	const { _id, price, title, img } = service;
-	const pName = <span>Checkout</span>;
 	const { user } = useContext(AuthContext);
 	useTitle("Book Service");
 
@@ -59,7 +58,7 @@ const BookService = () => {
 					borderRadius: "10px",
 				}}
 				className="relative md:py-[123px] pl-[90px] md:pl-[100px] mt-[50px]">
-				<h2 className="text-[45px] text-white font-bold">{pName}</h2>
+				<h2 className="text-[45px] text-white font-bold">Service</h2>
 				<p
 					style={{
 						backgroundImage: `url(${img2})`,
@@ -67,7 +66,7 @@ const BookService = () => {
 						backgroundPosition: "center",
 					}}
 					className="text-center text-white text-xl font-medium absolute right-[10%] md:right-[38%] bottom-[-0.5px] h-[50px] w-[296px] py-[13px]">
-					Home/{pName}
+					Home/Service
 				</p>
 			</div>
 			<div className="card-body md:p-[97px] bg-[#F3F3F3] rounded-lg my-[50px] md:my-[130px]">
