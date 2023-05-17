@@ -8,7 +8,9 @@ const NavBar = () => {
 
 	const handleLogOut = () => {
 		logOut()
-			.then(() => {})
+			.then(() => {
+				
+			})
 			.catch((err) => console.log(err));
 	};
 
@@ -16,9 +18,6 @@ const NavBar = () => {
 		<>
 			<li>
 				<Link to="/">Home</Link>
-			</li>
-			<li>
-				<Link to="/signup">Sign Up</Link>
 			</li>
 			{user?.email ? (
 				<>
@@ -34,6 +33,9 @@ const NavBar = () => {
 					<Link to="/login">Login</Link>
 				</li>
 			)}
+			<li>
+				<Link to="/signup">Sign Up</Link>
+			</li>
 		</>
 	);
 

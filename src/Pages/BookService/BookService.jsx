@@ -18,18 +18,17 @@ const BookService = () => {
 		const email = user?.email;
 		const phone = form.phone.value;
 		const booking = {
-			customerName: name,
+			service: name,
 			email,
 			date,
 			img,
 			phone,
-			service: title,
 			service_id: _id,
 			price: price,
 		};
 		console.log(booking);
 
-		fetch("http://localhost:5000/bookings", {
+		fetch("https://car-doctor-server-shariful10.vercel.app/bookings", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -76,7 +75,7 @@ const BookService = () => {
 							<input
 								type="text"
 								name="name"
-								defaultValue={user?.displayName}
+								defaultValue={title}
 								placeholder="Your Name"
 								className="input input-bordered"
 							/>

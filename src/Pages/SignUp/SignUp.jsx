@@ -4,6 +4,7 @@ import img from "../../assets/images/login/login.svg";
 import google from "../../assets/images/login/google.svg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
 	const [pass, setPass] = useState(false);
@@ -81,18 +82,7 @@ const SignUp = () => {
 						/>
 					</div>
 					<input className="btn-form" type="submit" value="Sign Up" />
-					<p className="text-center my-[20px] text-[18px] font-medium">Or Sign In with</p>
-					<div className="flex justify-center items-center mx-auto gap-4">
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<FaFacebookF className="text-[#3B5998] rounded-[50%]" />
-						</div>
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<FaLinkedinIn className="text-[#0A66C2]" />
-						</div>
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<img className="w-[17px] h-[17px]" src={google} alt="" />
-						</div>
-					</div>
+					<SocialLogin />
 					<p className="text-center text-[#737373] text-[18px] font-normal mt-[30px]">
 						Already have an account?
 						<span className="font-semibold text-[#FF3811]">

@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import img from "../../assets/images/login/login.svg";
-import google from "../../assets/images/login/google.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
 	const [pass, setPass] = useState(false);
-	const { signIn, googleSignIn, facebookSignIn } = useContext(AuthContext);
+	const { signIn } = useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 
@@ -18,15 +18,11 @@ const Login = () => {
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
 
 		signIn(email, password)
 			.then((res) => {
 				const user = res.user;
 				console.log(user);
-				if (user) {
-					alert("Successfully Login");
-				}
 				form.reset();
 				navigate(from, { replace: true });
 			})
@@ -35,26 +31,6 @@ const Login = () => {
 				alert("Login Failed");
 				form.reset();
 			});
-	};
-
-	const handleGoogleLogin = () => {
-		googleSignIn()
-			.then((res) => {
-				const loggedUser = res.user;
-				console.log(loggedUser);
-				alert("Successfully Login");
-			})
-			.catch((err) => console.log(err));
-	};
-
-	const handleFacebookLogin = () => {
-		facebookSignIn()
-			.then((res) => {
-				const loggedUser = res.user;
-				console.log(loggedUser);
-				alert("Successfully Login");
-			})
-			.catch((err) => console.log(err));
 	};
 
 	return (
@@ -95,26 +71,7 @@ const Login = () => {
 						/>
 					</div>
 					<input className="btn-form" type="submit" value="Login" />
-					<p className="text-center my-[20px] text-[18px] font-medium">Or Sign In with</p>
-					<div className="flex justify-center items-center mx-auto gap-4">
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<FaFacebookF
-								onClick={handleFacebookLogin}
-								className="text-[#3B5998] rounded-[50%]"
-							/>
-						</div>
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<FaLinkedinIn className="text-[#0A66C2]" />
-						</div>
-						<div className="bg-[#F5F5F8] p-[18px] rounded-[50%]">
-							<img
-								onClick={handleGoogleLogin}
-								className="w-[17px] h-[17px]"
-								src={google}
-								alt=""
-							/>
-						</div>
-					</div>
+					<SocialLogin />
 					<p className="text-center text-[#737373] text-[18px] font-normal mt-[30px]">
 						Don't have an account?
 						<span className="font-semibold text-[#FF3811]">

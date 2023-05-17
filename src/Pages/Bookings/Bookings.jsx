@@ -2,25 +2,38 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import img from "../../assets/images/bookings/cart-details.png";
 import BookingRow from "./BookingRow";
+import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
 	const { user } = useContext(AuthContext);
 	const [bookings, setBookings] = useState([]);
+	const navigate = useNavigate();
 
 	const pTitle = <span>Cart Details</span>;
 	const pName = <span>Product Details</span>;
-	const url = `http://localhost:5000/bookings?email=${user?.email}`;
+	const url = `https://car-doctor-server-shariful10.vercel.app/bookings?email=${user?.email}`;
 
 	useEffect(() => {
-		fetch(url)
+		fetch(url, {
+			method: "GET",
+			headers: {
+				authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+			},
+		})
 			.then((res) => res.json())
-			.then((data) => setBookings(data));
-	}, [url]);
+			.then((data) => {
+				if (!data.error) {
+					setBookings(data);
+				} else {
+					navigate("/");
+				}
+			});
+	}, [url, navigate]);
 
 	const handleDelete = (id) => {
 		const proceed = confirm("Are you sure you want to delete");
 		if (proceed) {
-			fetch(`http://localhost:5000/bookings/${id}`, {
+			fetch(`https://car-doctor-server-shariful10.vercel.app/bookings/${id}`, {
 				method: "DELETE",
 				// headers: { 'Content-Type': 'application/json' },
 			})
@@ -37,7 +50,7 @@ const Bookings = () => {
 	};
 
 	const handleBookingConfirm = (id) => {
-		fetch(`http://localhost:5000/bookings/${id}`, {
+		fetch(`https://car-doctor-server-shariful10.vercel.app/bookings/${id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",

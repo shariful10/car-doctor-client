@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
-import img1 from '../../assets/images/time/timer.png'
-import img2 from '../../assets/images/time/call.png'
-import img3 from '../../assets/images/time/map.png'
+import img1 from "../../assets/images/time/timer.png";
+import img2 from "../../assets/images/time/call.png";
+import img3 from "../../assets/images/time/map.png";
 
 const Services = () => {
 	const [services, setServices] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/services")
+		fetch("https://car-doctor-server-shariful10.vercel.app/services")
 			.then((res) => res.json())
 			.then((data) => setServices(data));
 	}, []);
