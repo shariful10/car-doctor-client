@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import img from "../../assets/images/login/login.svg";
-import google from "../../assets/images/login/google.svg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import useTitle from "../../Hooks/useTitle";
 
 const SignUp = () => {
 	const [pass, setPass] = useState(false);
 	const { createUser } = useContext(AuthContext);
+	useTitle("Sign Up");
 
 	const handleSignUp = (e) => {
 		e.preventDefault();

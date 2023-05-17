@@ -4,12 +4,14 @@ import img from "../../assets/images/login/login.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
 	const [pass, setPass] = useState(false);
 	const { signIn } = useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
+	useTitle('Login')
 
 	const from = location.state?.from?.pathname || "/";
 

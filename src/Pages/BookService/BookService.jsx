@@ -3,12 +3,14 @@ import { useLoaderData } from "react-router-dom";
 import img1 from "../../assets/images/checkout/checkout.png";
 import img2 from "../../assets/images/checkout/Vector.png";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const BookService = () => {
 	const service = useLoaderData();
 	const { _id, price, title, img } = service;
 	const pName = <span>Checkout</span>;
 	const { user } = useContext(AuthContext);
+	useTitle("Book Service");
 
 	const handleBookService = (e) => {
 		e.preventDefault();

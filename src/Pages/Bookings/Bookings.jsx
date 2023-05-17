@@ -3,11 +3,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import img from "../../assets/images/bookings/cart-details.png";
 import BookingRow from "./BookingRow";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const Bookings = () => {
 	const { user } = useContext(AuthContext);
 	const [bookings, setBookings] = useState([]);
 	const navigate = useNavigate();
+	useTitle('My Bookings');
 
 	const pTitle = <span>Cart Details</span>;
 	const pName = <span>Product Details</span>;
