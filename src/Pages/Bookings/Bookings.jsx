@@ -1,18 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import img from "../../assets/images/bookings/cart-details.png";
 import BookingRow from "./BookingRow";
 import { useNavigate } from "react-router-dom";
 import useTitle from "../../Hooks/useTitle";
+import CartBanner from "../BookService/CartBanner";
 
 const Bookings = () => {
 	const { user } = useContext(AuthContext);
 	const [bookings, setBookings] = useState([]);
 	const navigate = useNavigate();
-	useTitle('My Bookings');
+	useTitle("My Bookings");
 
-	const pTitle = <span>Cart Details</span>;
-	const pName = <span>Product Details</span>;
 	const url = `https://car-doctor-server-shariful10.vercel.app/bookings?email=${user?.email}`;
 
 	useEffect(() => {
@@ -74,19 +72,15 @@ const Bookings = () => {
 
 	return (
 		<div>
-			<div
-				style={{
-					backgroundImage: `url(${img})`,
-					backgroundPosition: "center",
-					backgroundRepeat: "no-repeat",
-					backgroundSize: "cover",
-					width: "100%",
-					height: "300px",
-					borderRadius: "10px",
-				}}
-				className="bg-gradient-to-r from-[#151515] to-[#15151500]">
-				<h2 className="text-[45px] text-white font-bold pt-[100px] pl-[124px]">{pTitle}</h2>
-				<p className="text-[#FF3811] text-[16px] font-medium pl-[124px]">Home/{pName}</p>
+			<div>
+				<CartBanner>
+					<h2 className="text-[45px] text-white font-bold pt-[100px] pl-[124px]">
+						Cart Details
+					</h2>
+					<p className="text-[#FF3811] text-[20px] font-semibold pl-[124px]">
+						Home/Product Details
+					</p>
+				</CartBanner>
 			</div>
 			<div className="overflow-x-auto w-full my-[130px]">
 				<table className="table w-full">

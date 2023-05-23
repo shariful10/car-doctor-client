@@ -25,3 +25,11 @@
 .btn-form {
 	@apply py-3 bg-[#FF3811] font-semibold duration-200 text-white rounded-lg w-full hover:bg-[#bd2d10];
 }
+
+.bnr-title {
+	@apply text-[45px] text-white font-bold;
+}
+
+.bnr-breadcrumb {
+	@apply text-center text-white text-xl font-medium absolute right-[10%] md:right-[38%] bottom-[-0.8px] h-[50px] w-[296px] py-[13px];
+}

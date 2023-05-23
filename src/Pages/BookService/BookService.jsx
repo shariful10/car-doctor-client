@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
-import img1 from "../../assets/images/checkout/checkout.png";
-import img2 from "../../assets/images/checkout/Vector.png";
-import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
+import { useLoaderData } from "react-router-dom";
+import TopBanner from "../Shared/Banner/TopBanner";
+import { AuthContext } from "../../Provider/AuthProvider";
+import img2 from "../../assets/images/checkout/Vector.png";
 
 const BookService = () => {
 	const service = useLoaderData();
@@ -47,27 +47,19 @@ const BookService = () => {
 
 	return (
 		<div>
-			<div
-				style={{
-					backgroundImage: `url(${img1})`,
-					backgroundPosition: "center",
-					backgroundRepeat: "no-repeat",
-					backgroundSize: "cover",
-					width: "100%",
-					height: "300px",
-					borderRadius: "10px",
-				}}
-				className="relative md:py-[123px] pl-[90px] md:pl-[100px] mt-[50px]">
-				<h2 className="text-[45px] text-white font-bold">Service</h2>
-				<p
-					style={{
-						backgroundImage: `url(${img2})`,
-						backgroundRepeat: "no-repeat",
-						backgroundPosition: "center",
-					}}
-					className="text-center text-white text-xl font-medium absolute right-[10%] md:right-[38%] bottom-[-0.5px] h-[50px] w-[296px] py-[13px]">
-					Home/Service
-				</p>
+			<div className="">
+				<TopBanner>
+					<h2 className="bnr-title">Service</h2>
+					<p
+						style={{
+							backgroundImage: `url(${img2})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center",
+						}}
+						className="bnr-breadcrumb">
+						Home/Service
+					</p>
+				</TopBanner>
 			</div>
 			<div className="card-body md:p-[97px] bg-[#F3F3F3] rounded-lg my-[50px] md:my-[130px]">
 				<form onSubmit={handleBookService}>
