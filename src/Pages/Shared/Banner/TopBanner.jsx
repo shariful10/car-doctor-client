@@ -13,7 +13,7 @@ const TopBanner = ({ children }) => {
 				backgroundRepeat: "no-repeat",
 				backgroundImage: `url(${img1})`,
 			}}
-			className="relative md:py-[123px] pl-[90px] md:pl-[100px] mt-[50px]">
+			className="relative md:py-[123px] pl-[110px] md:pl-[100px] mt-[50px] pt-[85px]">
 			{children}
 		</div>
 	);
